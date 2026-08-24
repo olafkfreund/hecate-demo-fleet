@@ -1,0 +1,10 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: production
+resources:
+  - deployment.yaml
+# Hecate's set-image step repins this list. The tag here is what is deployed;
+# a promotion is a commit that changes it.
+images:
+  - name: ghcr.io/podtato-head/podtato-server
+    newTag: v0.3.0

@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: podtato-head
+  namespace: production
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: podtato-head
+  template:
+    metadata:
+      labels:
+        app: podtato-head
+    spec:
+      containers:
+        - name: server
+          image: ghcr.io/podtato-head/podtato-server
+          ports:
+            - containerPort: 9000
+          resources:
+            requests:
+              cpu: 25m
+              memory: 32Mi
+            limits:
+              memory: 128Mi
