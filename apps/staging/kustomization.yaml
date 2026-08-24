@@ -8,4 +8,4 @@ resources:
 # a promotion is a commit that changes it.
 images:
   - name: ghcr.io/podtato-head/podtato-server
-    newTag: v0.3.3
+    newTag: v0.3.0
